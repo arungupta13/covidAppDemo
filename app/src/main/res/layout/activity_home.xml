@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity"
+    android:orientation="vertical">
+
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="Enter Country Name:"
+        android:id="@+id/et_country_name"
+        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="GET DATA"
+        android:id="@+id/btn_getdata"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+
+
+
+
+
+</LinearLayout>
