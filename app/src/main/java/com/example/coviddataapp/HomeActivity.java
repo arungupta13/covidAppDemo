@@ -12,13 +12,13 @@ import android.widget.Toast;
 public class HomeActivity extends AppCompatActivity {
     EditText editTextCountryName;
     Button buttonGetData;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        editTextCountryName=findViewById(R.id.et_country_name);
-        buttonGetData=findViewById(R.id.btn_getdata);
-
+        editTextCountryName = findViewById(R.id.et_country_name);
+        buttonGetData = findViewById(R.id.btn_getdata);
 
 
         checkCovidData();
@@ -28,12 +28,11 @@ public class HomeActivity extends AppCompatActivity {
     private void checkCovidData() {
 
 
-
         buttonGetData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(HomeActivity.this,MapsActivity.class);
-                i.putExtra("COUNTRY",editTextCountryName.getText().toString());
+                Intent i = new Intent(HomeActivity.this, MapsActivity.class);
+                i.putExtra("COUNTRY", editTextCountryName.getText().toString());
                 startActivity(i);
             }
         });
