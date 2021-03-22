@@ -1,6 +1,6 @@
 package com.example.coviddataapp.Class;
 
-import com.example.coviddataapp.MapApi;
+import com.example.coviddataapp.Class.API.MapApi;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

@@ -1,4 +1,6 @@
-package com.example.coviddataapp;
+package com.example.coviddataapp.Class.API;
+
+import com.example.coviddataapp.CovidModel;
 
 import java.util.List;
 
@@ -13,5 +15,6 @@ public interface MapApi {
     @Headers("x-rapidapi-key:aec37b08cbmsh0545a1a6d96cc7dp167e00jsn0f0926dcaf62")
     @GET("country")
     Call<List<CovidModel>> getData(@Query("name") String country);
+
 
 }
