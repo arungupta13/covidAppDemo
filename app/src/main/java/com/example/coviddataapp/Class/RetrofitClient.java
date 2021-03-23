@@ -3,6 +3,7 @@ package com.example.coviddataapp.Class;
 import com.example.coviddataapp.Class.API.MapApi;
 
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
@@ -12,11 +13,12 @@ public class RetrofitClient {
     private Retrofit retrofit;
 
 
-    private RetrofitClient() {
+    public RetrofitClient() {
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 
     }

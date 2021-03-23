@@ -1,30 +1,39 @@
 package com.example.coviddataapp.home;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.coviddataapp.Class.MyApplication;
 import com.example.coviddataapp.maps.MapsActivity;
 import com.example.coviddataapp.R;
 
-public class HomeActivity extends AppCompatActivity implements HomeContract.View {
+import javax.inject.Inject;
+
+public class HomeActivity extends Activity implements HomeContract.View {
     EditText editTextCountryName;
     Button buttonGetData;
     Double lat, lon;
     String confirmed, recovered, critical, death;
-    private HomeContract.Presenter presenter;
+
+    //inject presenter class in home activity using dagger
+    @Inject
+    HomeContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        presenter = new HomePresenter(this);
+        //component calling here for this activity
+        ((MyApplication) getApplicationContext()).getAppComponent().inject(this);
+
         editTextCountryName = findViewById(R.id.et_country_name);
         buttonGetData = findViewById(R.id.btn_getdata);
+
+
         buttonGetData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,6 +46,8 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     @Override
     public void locationdata() {
 
+
+        //location data function call by homepresenter for api data fetching
         presenter.locationdata();
     }
 
