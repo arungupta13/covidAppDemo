@@ -1,0 +1,229 @@
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    id 'com.android.application'\r\n}\r\n\r\nandroid {\r\n    compileSdkVersion 32\r\n    buildToolsVersion \"30.0.3\"\r\n\r\n    defaultConfig {\r\n        applicationId \"com.example.coviddataapp\"\r\n        minSdkVersion 19\r\n        targetSdkVersion 32\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility JavaVersion.VERSION_1_8\r\n        targetCompatibility JavaVersion.VERSION_1_8\r\n    }\r\n}\r\n\r\ndependencies {\r\n\r\n    implementation 'androidx.appcompat:appcompat:1.2.0'\r\n    implementation 'com.google.android.material:material:1.3.0'\r\n    implementation 'com.google.android.gms:play-services-maps:17.0.0'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'\r\n    testImplementation 'junit:junit:4.+'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.2'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'\r\n    //Retrofit\r\n    implementation 'com.squareup.retrofit2:retrofit:2.7.1'\r\n    //okhttp\r\n//    implementation 'com.squareup.okhttp3:okhttp:3.10.0'\r\n//    implementation 'com.squareup.okio:okio:1.14.0'\r\n//    implementation group:'com.square.okhttp3',name:'logging-interceptor',version:'3.9.1'\r\n\r\n    //Gson\r\n    implementation 'com.google.code.gson:gson:2.8.2'\r\n    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'\r\n\r\n    //Rxjava\r\n    implementation 'com.squareup.retrofit2:retrofit:2.3.0'\r\n    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'\r\n    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'\r\n    implementation 'io.reactivex.rxjava2:rxjava:2.1.9'\r\n    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'\r\n\r\n\r\n    //Dagger\r\n    implementation 'com.google.dagger:dagger-android:2.33'\r\n    implementation 'com.google.dagger:dagger-android-support:2.33' // if you use the support libraries\r\n    annotationProcessor 'com.google.dagger:dagger-android-processor:2.33'\r\n    annotationProcessor 'com.google.dagger:dagger-compiler:2.33'\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle b/app/build.gradle
+--- a/app/build.gradle	(revision dc815a6f8ddf5c2064af020beb7381384842a16b)
++++ b/app/build.gradle	(date 1674024871843)
+@@ -1,5 +1,6 @@
+ plugins {
+     id 'com.android.application'
++//    id 'com.google.firebase.appdistribution'
+ }
+ 
+ android {
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\r\nbuildscript {\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n    }\r\n    dependencies {\r\n        classpath \"com.android.tools.build:gradle:4.1.2\"\r\n\r\n        // NOTE: Do not place your application dependencies here; they belong\r\n        // in the individual module build.gradle files\r\n    }\r\n}\r\n\r\nallprojects {\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n    }\r\n}\r\n\r\ntask clean(type: Delete) {\r\n    delete rootProject.buildDir\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle b/build.gradle
+--- a/build.gradle	(revision dc815a6f8ddf5c2064af020beb7381384842a16b)
++++ b/build.gradle	(date 1674024845177)
+@@ -2,10 +2,10 @@
+ buildscript {
+     repositories {
+         google()
+-        jcenter()
++        mavenCentral()
+     }
+     dependencies {
+-        classpath "com.android.tools.build:gradle:4.1.2"
++        classpath "com.android.tools.build:gradle:4.1.3"
+ 
+         // NOTE: Do not place your application dependencies here; they belong
+         // in the individual module build.gradle files
+@@ -15,7 +15,7 @@
+ allprojects {
+     repositories {
+         google()
+-        jcenter()
++        mavenCentral()
+     }
+ }
+ 
+Index: .idea/compiler.xml
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+deleted file mode 100644
+--- a/.idea/compiler.xml	(revision dc815a6f8ddf5c2064af020beb7381384842a16b)
++++ /dev/null	(revision dc815a6f8ddf5c2064af020beb7381384842a16b)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="CompilerConfiguration">
+-    <bytecodeTargetLevel target="1.8" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/gradle.xml
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+deleted file mode 100644
+--- a/.idea/gradle.xml	(revision dc815a6f8ddf5c2064af020beb7381384842a16b)
++++ /dev/null	(revision dc815a6f8ddf5c2064af020beb7381384842a16b)
+@@ -1,22 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="GradleMigrationSettings" migrationVersion="1" />
+-  <component name="GradleSettings">
+-    <option name="linkedExternalProjectsSettings">
+-      <GradleProjectSettings>
+-        <option name="testRunner" value="PLATFORM" />
+-        <option name="distributionType" value="DEFAULT_WRAPPED" />
+-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+-        <option name="gradleJvm" value="1.8" />
+-        <option name="modules">
+-          <set>
+-            <option value="$PROJECT_DIR$" />
+-            <option value="$PROJECT_DIR$/app" />
+-          </set>
+-        </option>
+-        <option name="resolveModulePerSourceSet" value="false" />
+-        <option name="useQualifiedModuleNames" value="true" />
+-      </GradleProjectSettings>
+-    </option>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/jarRepositories.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/jarRepositories.xml b/.idea/jarRepositories.xml
+deleted file mode 100644
+--- a/.idea/jarRepositories.xml	(revision dc815a6f8ddf5c2064af020beb7381384842a16b)
++++ /dev/null	(revision dc815a6f8ddf5c2064af020beb7381384842a16b)
+@@ -1,25 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="RemoteRepositoriesConfiguration">
+-    <remote-repository>
+-      <option name="id" value="central" />
+-      <option name="name" value="Maven Central repository" />
+-      <option name="url" value="https://repo1.maven.org/maven2" />
+-    </remote-repository>
+-    <remote-repository>
+-      <option name="id" value="jboss.community" />
+-      <option name="name" value="JBoss Community repository" />
+-      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+-    </remote-repository>
+-    <remote-repository>
+-      <option name="id" value="BintrayJCenter" />
+-      <option name="name" value="BintrayJCenter" />
+-      <option name="url" value="https://jcenter.bintray.com/" />
+-    </remote-repository>
+-    <remote-repository>
+-      <option name="id" value="Google" />
+-      <option name="name" value="Google" />
+-      <option name="url" value="https://dl.google.com/dl/android/maven2/" />
+-    </remote-repository>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/.gitignore
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+deleted file mode 100644
+--- a/.idea/.gitignore	(revision dc815a6f8ddf5c2064af020beb7381384842a16b)
++++ /dev/null	(revision dc815a6f8ddf5c2064af020beb7381384842a16b)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: .idea/vcs.xml
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+deleted file mode 100644
+--- a/.idea/vcs.xml	(revision dc815a6f8ddf5c2064af020beb7381384842a16b)
++++ /dev/null	(revision dc815a6f8ddf5c2064af020beb7381384842a16b)
+@@ -1,7 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+-    <mapping directory="$PROJECT_DIR$/covidapp" vcs="Git" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+deleted file mode 100644
+--- a/.idea/misc.xml	(revision dc815a6f8ddf5c2064af020beb7381384842a16b)
++++ /dev/null	(revision dc815a6f8ddf5c2064af020beb7381384842a16b)
+@@ -1,9 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+-    <output url="file://$PROJECT_DIR$/build/classes" />
+-  </component>
+-  <component name="ProjectType">
+-    <option name="id" value="Android" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: app/google-services.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/google-services.json b/app/google-services.json
+new file mode 100644
+--- /dev/null	(date 1674024114053)
++++ b/app/google-services.json	(date 1674024114053)
+@@ -0,0 +1,47 @@
++{
++  "project_info": {
++    "project_number": "441986629279",
++    "project_id": "covid-app-demo-33ea9",
++    "storage_bucket": "covid-app-demo-33ea9.appspot.com"
++  },
++  "client": [
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:441986629279:android:6c36cbfdf965bd8c712caa",
++        "android_client_info": {
++          "package_name": "com.example.coviddataapp"
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "441986629279-qsn9oulkgs4mnodsr53tvpqc6iv67t42.apps.googleusercontent.com",
++          "client_type": 1,
++          "android_info": {
++            "package_name": "com.example.coviddataapp",
++            "certificate_hash": "905c6090145aa8146e6024c484fde417ee69701e"
++          }
++        },
++        {
++          "client_id": "441986629279-h53nnc2unf141nqe2btp9bs46rmajgct.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [
++        {
++          "current_key": "AIzaSyCz9aBQEcg6Bcv5qlAJqfwVLWANAQzkXZQ"
++        }
++      ],
++      "services": {
++        "appinvite_service": {
++          "other_platform_oauth_client": [
++            {
++              "client_id": "441986629279-h53nnc2unf141nqe2btp9bs46rmajgct.apps.googleusercontent.com",
++              "client_type": 3
++            }
++          ]
++        }
++      }
++    }
++  ],
++  "configuration_version": "1"
++}
+\ No newline at end of file
